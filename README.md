@@ -6,4 +6,6 @@ HeadHunterAutoUpdate
 3. EditThisCookie > Import Cookie > Save as "cookie.txt"
 
 4. Replace "id" lines in the "jobs.txt" file with your job id 
-  Fro example http://hh.ru/resume/06d078feff01d715800039ed1f3956374f6441 > id - 06d078feff01d715800039ed1f3956374f6441
+For example http://hh.ru/resume/06d078feff01d715800039ed1f3956374f6441 > id - 06d078feff01d715800039ed1f3956374f6441
+
+5. python autoUpdate.py
