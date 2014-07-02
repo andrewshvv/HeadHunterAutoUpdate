@@ -5,9 +5,9 @@ import requests
 import time
 
 hours = 0
-min = 5
-sec = 0
-sleepTime = (hours*pow(60,2))+(min*pow(60,1))+sec
+min = 0
+sec = 30
+sleepTime = hours*pow(60,2)+min*pow(60,1)+sec
 
 cookieFileName = "cookies.txt"
 jobIdFileName = "jobs.txt"
@@ -18,16 +18,17 @@ def update(id,cookies):
     r = requests.post(url=url, data=payload,cookies=cookies)
 
 def cookie_file_transformation(file):
-    content = open(file,"r")
-    cookieDictionary = json.load(content)
-    return { record["name"]:record["value"] for record in cookieDictionary }
+
+    with open(file, 'r') as content:
+        cookieDictionary = json.load(content)
+        return { record["name"]:record["value"] for record in cookieDictionary }
 
 def job_update(file):
-    content = open(file,"r")
-    jobDictionary = json.load(content)
-    cookies = cookie_file_transformation(cookieFileName)
-    for record in jobDictionary:
-        update(record["id"],cookies)
+    with open(file, 'r') as content:
+        jobDictionary = json.load(content)
+        cookies = cookie_file_transformation(cookieFileName)
+        for record in jobDictionary:
+            update(record["id"],cookies)
 
 while True:
     job_update(jobIdFileName)
