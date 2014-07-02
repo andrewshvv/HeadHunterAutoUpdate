@@ -4,9 +4,9 @@ import json
 import requests
 import time
 
-hours = 0
+hours = 2
 min = 0
-sec = 30
+sec = 0
 sleepTime = hours*pow(60,2)+min*pow(60,1)+sec
 
 cookieFileName = "cookies.txt"
